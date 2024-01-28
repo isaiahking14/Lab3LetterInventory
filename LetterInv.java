@@ -35,6 +35,21 @@ private char[] input_char_array;
         }
         return result + "]";
     }
+    // gets number of char's of given char
+     public String getChar(char input){
+        if (Character.isLetter(input)) {
+            input = Character.toLowerCase(input);
+            if (input >= 'a' && input <= 'z') {
+                return "The entered string contains " + letter_count[input - 'a'] + " " + input +"'s";
+            }
+            else{
+                throw new IllegalArgumentException("Please enter a Char into the method");
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Please enter a Char into the method");
+        }
+    }
 
     // counts array for each of the char
     public int[] LetterInventory(){
