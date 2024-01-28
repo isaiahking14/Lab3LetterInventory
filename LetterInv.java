@@ -29,14 +29,22 @@ private char[] input_char_array;
         if (letter_count.length == 0){
             return "[]";
         }
-        String result = "[" + letter_count[0];
+        String result = "[a:" + letter_count[0];
         for (int i = 1; i<letter_count.length; i++){
-            result += ", " + letter_count[i];
+            result += ", " + (char)('a' + i) + ": " + letter_count[i];
         }
         return result + "]";
     }
-    // gets number of char's of given char
-     public String getChar(char input){
+
+    public String addTotal(){
+        int total = 0;
+        for (int i = 0; i < letter_count.length; i++){
+            total += letter_count[i];
+        }
+        return "The strings total letter count is " + total;
+    }
+
+    public String getChar(char input){
         if (Character.isLetter(input)) {
             input = Character.toLowerCase(input);
             if (input >= 'a' && input <= 'z') {
@@ -54,10 +62,10 @@ private char[] input_char_array;
     // counts array for each of the char
     public int[] LetterInventory(){
         for (int i = 0; i < input_char_array.length; i++) {
-            char currentChar = input_char_array[i];
-            if (currentChar >= 'a' && currentChar <= 'z') {
+            char strings_char = input_char_array[i];
+            if (strings_char >= 'a' && strings_char <= 'z') {
                 // increment the count for the corresponding char
-                letter_count[currentChar - 'a']++;
+                letter_count[strings_char - 'a']++;
             }
         }
         return letter_count;
