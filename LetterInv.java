@@ -24,6 +24,17 @@ private char[] input_char_array;
         return input_char_array;
     }
 
+    public String printCharArray(){
+        if (input_char_array.length == 0){
+            return "[]";
+        }
+        String result = "[" + input_char_array[0];
+        for (int i = 1; i<input_char_array.length; i++){
+            result += input_char_array[i];
+        }
+        return result + "]";
+    }
+
     // prints the LETTERCOUNT char array
     public String printLetterCount(){
         if (letter_count.length == 0){
@@ -58,6 +69,25 @@ private char[] input_char_array;
             throw new IllegalArgumentException("Please enter a Char into the method");
         }
     }
+
+    public void setChar(char input, int value){
+        if (Character.isLetter(input)){
+            input = Character.toLowerCase(input);
+            if (input >= 'a' && input <= 'z' && value >= 0){
+                letter_count[input - 'a'] = value;
+            }
+            else {
+                throw new IllegalArgumentException("Please enter a valid value and character. Must be a alphabetic character," +
+                " and the value must be positive");
+            }
+        }
+        else {
+            throw new IllegalArgumentException("Please enter a valid value and character. Must be a alphabetic character," +
+            " and the value must be positive");
+        }
+    }
+
+    
 
     // counts array for each of the char
     public int[] LetterInventory(){
