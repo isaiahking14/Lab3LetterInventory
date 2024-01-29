@@ -5,12 +5,18 @@ public class LetterInvMain {
         LetterInv letterinv1 = new LetterInv();
         letterinv1.convertStringToCharArray(letterinv1.getInput());
         letterinv1.LetterInventory();
-        System.out.println(letterinv1.printLetterCount());
+        letterinv1.printLetterCount();
         System.out.println(letterinv1.getChar('g'));
         System.out.println(letterinv1.addTotal());
         letterinv1.setChar('h', 65);
-        System.out.println(letterinv1.printLetterCount());
-        System.out.println(letterinv1.printCharArray());
-   
+        letterinv1.printLetterCount();
+        System.out.println(letterinv1.toString());
+
+        LetterInv letterinv2 = new LetterInv();
+        letterinv2.convertStringToCharArray(letterinv2.getInput());
+        letterinv2.LetterInventory();
+        letterinv2.printLetterCount();
+        
     }
+    
 }
