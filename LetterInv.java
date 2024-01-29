@@ -3,6 +3,7 @@ import java.util.*;
 public class LetterInv {
 private int[] letter_count;
 private char[] input_char_array;
+private int sum;
 
     public LetterInv() {
         letter_count = new int[26];
@@ -24,7 +25,7 @@ private char[] input_char_array;
         return input_char_array;
     }
 
-    public String printCharArray(){
+    public String toString(){
         if (input_char_array.length == 0){
             return "[]";
         }
@@ -36,15 +37,17 @@ private char[] input_char_array;
     }
 
     // prints the LETTERCOUNT char array
-    public String printLetterCount(){
+    public void printLetterCount(){
+        String result;
         if (letter_count.length == 0){
-            return "[]";
+            result = "[]";
         }
-        String result = "[a:" + letter_count[0];
+        result = "[a:" + letter_count[0];
         for (int i = 1; i<letter_count.length; i++){
             result += ", " + (char)('a' + i) + ": " + letter_count[i];
         }
-        return result + "]";
+            result = result + "]";
+        System.out.println(result);
     }
 
     public String addTotal(){
@@ -52,6 +55,7 @@ private char[] input_char_array;
         for (int i = 0; i < letter_count.length; i++){
             total += letter_count[i];
         }
+        this.sum = total;
         return "The strings total letter count is " + total;
     }
 
