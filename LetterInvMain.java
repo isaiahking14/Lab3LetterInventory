@@ -8,8 +8,9 @@ public class LetterInvMain {
         System.out.println(letterinv1.printLetterCount());
         System.out.println(letterinv1.getChar('g'));
         System.out.println(letterinv1.addTotal());
-        
+        letterinv1.setChar('h', 65);
+        System.out.println(letterinv1.printLetterCount());
+        System.out.println(letterinv1.printCharArray());
+   
     }
-
-
 }
