@@ -73,16 +73,27 @@ private int sum = -1;
         }
     }
 
-    public void setChar(char input, int value){
+    public char[] setChar(char input, int value){
         input = Character.toLowerCase(input);
+        char[] char_array_copy = new char[input_char_array.length + value];
+        for (int i = 0; i<input_char_array.length; i++){
+            char_array_copy[i] = input_char_array[i];
+        }
+    
         if (input >= 'a' && input <= 'z' && value >= 0){
-            this.letter_count[input - 'a'] = value;
+            int length = input_char_array.length;
+            for (int i = 0; i < value; i++){
+                char_array_copy[length + i] = input; 
+            }
+            input_char_array = char_array_copy;
+            Arrays.sort(input_char_array);
         }
            
         else {
             throw new IllegalArgumentException("Please enter a valid value and character. Must be a alphabetic character," +
             " and the value must be positive");
         }
+        return input_char_array;
     }
 
     public LetterInv add(LetterInv other){
