@@ -106,6 +106,7 @@ private int sum = -1;
         char[] result = sb.toString().toCharArray();
         LetterInv addLetterInv = new LetterInv();
         addLetterInv.input_char_array = result;
+        Arrays.sort(addLetterInv.input_char_array);
         addLetterInv.LetterInventory();
         return addLetterInv;
     }
