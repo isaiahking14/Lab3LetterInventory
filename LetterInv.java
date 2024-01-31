@@ -63,7 +63,7 @@ private int sum = -1;
 
     public String getChar(char input){
         input = Character.toLowerCase(input);
-          
+        
         if (input >= 'a' && input <= 'z') {
             return "The entered string contains " + letter_count[input - 'a'] + " " + input +"'s";
         }
@@ -73,6 +73,7 @@ private int sum = -1;
         }
     }
 
+    // return new input char array, and then run the letter inventory on the new char array
     public char[] setChar(char input, int value){
         input = Character.toLowerCase(input);
         char[] char_array_copy = new char[input_char_array.length + value];
@@ -94,7 +95,9 @@ private int sum = -1;
             " and the value must be positive");
         }
         return input_char_array;
+        
     }
+    
 
     public LetterInv add(LetterInv other){
         StringBuilder sb = new StringBuilder();
@@ -110,6 +113,7 @@ private int sum = -1;
     public LetterInv subtract(LetterInv other){
         LetterInv subtractLetterInv = new LetterInv();
         subtractLetterInv.input_char_array = this.input_char_array;
+        Arrays.sort(subtractLetterInv.input_char_array);
         subtractLetterInv.LetterInventory();
         
         for (int i = 0; i < subtractLetterInv.letter_count.length; i++){
@@ -124,6 +128,7 @@ private int sum = -1;
 
     // counts array for each of the char
     public int[] LetterInventory(){
+        letter_count = new int[26];
         for (int i = 0; i < input_char_array.length; i++) {
             char strings_char = input_char_array[i];
             if (strings_char >= 'a' && strings_char <= 'z') {
